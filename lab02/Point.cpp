@@ -352,10 +352,6 @@ pair<Point, Point> farthestPoints(Point* points, int numPoints) {
 
     findFarthestPoints(farthestPair, points, numPoints);
 
-    cout<<"Farthest: ";
-    farthestPair.first.print();
-    farthestPair.second.print();
-
     return farthestPair;
 }
 
