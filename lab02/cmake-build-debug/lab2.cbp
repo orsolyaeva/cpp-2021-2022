@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Orsi/Desktop/Egyetem/CPP/cpp-labor/lab02/Point.cpp">
+			<Option target="lab2"/>
+		</Unit>
+		<Unit filename="C:/Users/Orsi/Desktop/Egyetem/CPP/cpp-labor/lab02/Point.h">
+			<Option target="lab2"/>
+		</Unit>
 		<Unit filename="C:/Users/Orsi/Desktop/Egyetem/CPP/cpp-labor/lab02/main.cpp">
 			<Option target="lab2"/>
 		</Unit>
