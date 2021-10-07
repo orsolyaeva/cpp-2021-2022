@@ -355,8 +355,8 @@ pair<Point, Point> farthestPoints(Point* points, int numPoints) {
     return farthestPair;
 }
 
-bool operator<(const Point& a, const Point& b) {
-    return a.getX() < b.getX();
+bool compareXHelp(const Point& a, const Point& b) {
+    return a.getX()< b.getX();
 }
 
 // function to sort array of points according to X coordinate
@@ -366,11 +366,18 @@ void sortPoints(Point* points, int numPoints) {
         return;
     }
 
-    vector<Point> pointsV (points, points + numPoints);
-    sort(pointsV.begin(), pointsV.end());
+//    vector<Point> pointsV (points, points + numPoints);
+//    sort(pointsV.begin(), pointsV.end());
 
-    for(auto it : pointsV) {
-        it.print();
+//    for(auto it : pointsV) {
+//        it.print();
+//    }
+
+    sort(points, points + numPoints, compareXHelp);
+
+    cout << "SORTED POINTS: ";
+    for(int i = 0; i < numPoints; i++) {
+        points[i].print();
     }
 }
 

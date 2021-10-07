@@ -43,6 +43,7 @@ double greatestDistance(pair<Point, Point> &farthestPair, Point* points, int num
 double findFarthestPointsHelp(pair<Point, Point> &farthestPair, Point* points, int numPoints, double dist);
 double findFarthestPoints(pair<Point, Point> &farthestPair, Point* points, int numPoints);
 pair<Point, Point> farthestPoints(Point* points, int numPoints);
+bool compareXHelp(const Point& a, const Point& b);
 void sortPoints(Point* points, int numPoints);
 bool operator<(const Point& a, const Point& b);
 Point* farthestPointsFromOrigin(Point* points, int numPoints);
