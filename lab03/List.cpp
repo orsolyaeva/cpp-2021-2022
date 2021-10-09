@@ -72,39 +72,14 @@ void List::remove(int d, List::DeleteFlag df) {
         return;
     }
 
-    if(this->size() == 1) {
-        switch (df) {
-            case DeleteFlag::LESS: {
-                if (this->first->value < d) {
-                    removeFirst();
-                    return;
-                }
+    switch (df) {
+        case DeleteFlag::LESS: {
+            if(this->size() == 1 && this->first->value < d || this->first->value < d){
+                removeFirst();
+                return;
             }
-            case DeleteFlag::EQUAL: {
-                if (this->first->value == d) {
-                    removeFirst();
-                    return;
-                }
-            }
-            case DeleteFlag::GREATER: {
-                if (this->first->value > d) {
-                    removeFirst();
-                    return;
-                }
-            }
-        }
 
-        return;
-    }
-
-    for(auto temp = this->first; temp->next!= nullptr; temp = temp->next) {
-        switch (df) {
-            case DeleteFlag::LESS: {
-                if(this->first->value < d) { // if the element we search for is the first in the list
-                    removeFirst();
-                    return;
-                }
-
+            for(auto temp = this->first; temp->next!= nullptr; temp = temp->next) {
                 if(temp->next->value < d) {
                     auto node = temp->next->next;
                     delete temp->next;
@@ -112,15 +87,17 @@ void List::remove(int d, List::DeleteFlag df) {
                     this->nodeCounter -= 1;
                     return;
                 }
-
-                break;
             }
-            case DeleteFlag::EQUAL: {
-                if(this->first->value == d) {
-                    removeFirst();
-                    return;
-                }
 
+            break;
+        }
+        case DeleteFlag::EQUAL: {
+            if(this->size() == 1 && this->first->value == d || this->first->value == d){
+                removeFirst();
+                return;
+            }
+
+            for(auto temp = this->first; temp->next!= nullptr; temp = temp->next) {
                 if(temp->next->value == d) {
                     auto node = temp->next->next;
                     delete temp->next;
@@ -128,15 +105,17 @@ void List::remove(int d, List::DeleteFlag df) {
                     this->nodeCounter -= 1;
                     return;
                 }
-
-                break;
             }
-            case DeleteFlag::GREATER: {
-                if(this->first->value > d) {
-                    removeFirst();
-                    return;
-                }
 
+            break;
+        }
+        case DeleteFlag::GREATER: {
+            if(this->size() == 1 && this->first->value > d || this->first->value > d){
+                removeFirst();
+                return;
+            }
+
+            for(auto temp = this->first; temp->next!= nullptr; temp = temp->next) {
                 if(temp->next->value > d) {
                     auto node = temp->next->next;
                     delete temp->next;
@@ -144,9 +123,9 @@ void List::remove(int d, List::DeleteFlag df) {
                     this->nodeCounter -= 1;
                     return;
                 }
-
-                break;
             }
+
+            break;
         }
     }
 }
