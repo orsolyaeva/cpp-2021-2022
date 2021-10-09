@@ -96,7 +96,7 @@ void exercise5() {
 }
 
 void exercise6() {
-    istringstream string("1.1 2.2 3.3 alma korte 4.4");
+    istringstream string("123 alma 123 korte");
     double sum, number;
 
     while(string) {
@@ -150,7 +150,7 @@ void exercise10() {
 // function to sort the map according to value
 void sort(map<string, int>& M, int n)
 {
-    vector<pair<string, int> > A;
+    vector<pair<string, int>> A;
 
     // Copy key-value pair from Map to vector
     for (auto& it : M) {
