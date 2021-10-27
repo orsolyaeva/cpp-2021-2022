@@ -1,26 +1,28 @@
 #include "polynomial.h"
 
 int main() {
-    double pol[]{2, 3, 0, 4};
-    Polynomial poly1(3, pol);
-    cout << poly1;
-
-    cout << "poly1 result: " << poly1.evaluate(-1) <<  endl;
-
-    Polynomial poly2 = poly1;
-    cout << poly2;
-
-    Polynomial derivative = poly1.derivative();
-    cout << derivative;
-
-    cout << "=====================================================" << endl;
-    cout << poly1 << " + " << derivative << " = " << poly1 + derivative << endl;
-
-    cout << "=====================================================" << endl;
-    cout << poly1 << " - " << derivative << " = " << poly1 - derivative << endl;
-
-    cout << "=====================================================" << endl;
-    cout << poly1 << " + " << derivative << " = " << poly1 * derivative << endl;
-
-    return 0;
+    int exercise;
+    printExercises();
+    while(true){
+        cout << endl << endl << "Enter the number of the exercise (to exit enter 12):";
+        cin >> exercise;
+        switch (exercise) {
+            case 1: exercise1(); break;
+            case 2: exercise2(); break;
+            case 3: exercise3(); break;
+            case 4: exercise4(); break;
+            case 5: exercise5(); break;
+            case 6: exercise6(); break;
+            case 7: exercise7(); break;
+            case 8: exercise8(); break;
+            case 9: exercise9(); break;
+            case 10: exercise10(); break;
+            case 11: exercise11(); break;
+            case 12: exit(0);
+            default:{
+                cout << "Something went wrong...please try again!" << endl;
+                break;
+            }
+        }
+    }
 }
