@@ -55,6 +55,12 @@ int Customer::getNumAccounts() const {
 void Customer::print(ostream &os) const {
     os << "Customer ID: " << this->id << " ~~~ Name: " << this->firstName << " " << this->lastName << endl;
     os << "Accounts: " << endl;
+
+    if(this->accounts.empty()) {
+        os << '\t' << "This costumer has no accounts yet!" << endl << endl;
+        return;
+    }
+
     for(auto account : this->accounts) {
         os << '\t' << account;
     }

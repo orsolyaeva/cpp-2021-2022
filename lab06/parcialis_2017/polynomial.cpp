@@ -20,7 +20,7 @@ Polynomial::Polynomial(int degree, const double *coefficients) {
 
 /* Copy constructor */
 Polynomial::Polynomial(const Polynomial &that) {
-    this->capacity = that.capacity;
+   this->capacity = that.capacity;
     this->coefficients = new double[that.capacity];
 
     for(int i = 0; i < that.capacity; i++) {
@@ -30,9 +30,7 @@ Polynomial::Polynomial(const Polynomial &that) {
 
 /* Move constructor */
 Polynomial::Polynomial(Polynomial &&that) {
-    cout << "Move constructor" << endl;
-
-    // move that to this
+   // move that to this
      this->capacity = that.capacity;
      this->coefficients = new double[that.capacity];
      for(int i = 0; i < this->capacity; i++) {
@@ -132,22 +130,22 @@ Polynomial operator+(const Polynomial &a, const Polynomial &b) {
 
 /* subtraction operator: subtract two polynomials and return a new polynomial that is the result */
 Polynomial operator-(const Polynomial &a, const Polynomial &b) {
-    Polynomial substraction = (a.capacity > b.capacity) ? Polynomial(a.capacity - 1, a.coefficients) : Polynomial(b.capacity - 1, b.coefficients);
+    Polynomial subtraction = (a.capacity > b.capacity) ? Polynomial(a.capacity - 1, a.coefficients) : Polynomial(b.capacity - 1, b.coefficients);
 
-    int temp = substraction.capacity - 1;
+    int temp = subtraction.capacity - 1;
     if(a.capacity > b.capacity) {
         for(int i = b.capacity - 1; i >= 0; i--) {
-            substraction.coefficients[temp] -= b.coefficients[i];
+            subtraction.coefficients[temp] -= b.coefficients[i];
             temp -= 1;
         }
     } else {
         for(int i = a.capacity - 1; i >= 0; i--) {
-            substraction.coefficients[temp] -= a.coefficients[i];
+            subtraction.coefficients[temp] -= a.coefficients[i];
             temp -= 1;
         }
     }
 
-    return substraction;
+    return subtraction;
 }
 
 /* multiplication operator: multiply two polynomials and return a new polynomial that is the result */
