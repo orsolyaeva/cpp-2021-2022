@@ -3,3 +3,4 @@
 */cmake-build-debug/
 */*.exe
 lab01/cmake-build-debug/input.txt
+!cmake-debug-files/*.txt
