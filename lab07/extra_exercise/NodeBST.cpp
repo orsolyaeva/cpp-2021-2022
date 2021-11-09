@@ -4,10 +4,8 @@
 
 #include "NodeBST.h"
 
-bool ok = false;
-
 NodeBST::NodeBST() {
-    this->root = new Node;
+    this->root = nullptr;
 }
 
 NodeBST::~NodeBST() {
@@ -16,9 +14,9 @@ NodeBST::~NodeBST() {
 }
 
 void NodeBST::insert(int val) {
-    if(this->root->val == 0 && !ok) {
+    if(this->root == nullptr) {
+        this->root = new Node;
         this->root->val = val;
-        ok = true;
         return;
     }
 
