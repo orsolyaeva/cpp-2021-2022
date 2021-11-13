@@ -6,15 +6,13 @@
 using namespace std;
 
 template <typename T>
-void print(vector<T> vector,const string& title) {
+void print(const vector<T>& vector,const string& title) {
     cout << title << ": ";
     for_each(vector.begin(), vector.end(), [](const T& element){
         cout << element << " ";
     });
     cout << endl;
 }
-
-
 
 int main(int argc, char** argv) {
      // 1.
