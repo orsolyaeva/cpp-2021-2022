@@ -33,6 +33,7 @@ int main(int argc, char** argv) {
     while( it.hasNext() ){
         cout<<it.next()<<"\t";
     }
+    cout << it.next();
 
     cout<<endl;
     for( int i=0; i<10; ++i ){
