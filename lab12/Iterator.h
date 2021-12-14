@@ -7,14 +7,29 @@
 
 #include "OrderedList.h"
 
-//template <class T, class LessComp = less<T>, class Equal = equal_to<T>>
-//class Iterator {
-//    OrderedList<T, LessComp, Equal>& list;
-//    OrderedList<T, LessComp, Equal>::Node* act;
-//public:
-//    Iterator(OrderedList<T, LessComp, Equal> &list) : list(list) {}
-//    bool hasNext();
-//    T next();
-//};
+template <class T, class LessComp, class Equal>
+class Iterator {
+    OrderedList<T, LessComp, Equal>& list;
+    typename OrderedList<T, LessComp, Equal>::Node* act;
+public:
+    explicit Iterator(OrderedList<T, LessComp, Equal> &list) : list(list) {
+        act = list.first;
+    }
+    bool hasNext();
+    T next();
+};
+
+template<class T, class LessComp, class Equal>
+bool Iterator<T, LessComp, Equal>::hasNext() {
+    return this->act->next != nullptr;
+}
+
+template<class T, class LessComp, class Equal>
+T Iterator<T, LessComp, Equal>::next() {
+    auto temp = this->act;
+    this->act = this->act->next;
+    return temp->value;
+}
+
 
 #endif //LAB12_ITERATOR_H

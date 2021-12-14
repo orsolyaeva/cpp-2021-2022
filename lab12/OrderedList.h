@@ -9,7 +9,9 @@
 #include <functional>
 using namespace std;
 
-//class Iterator<T, LessComp, Equal>;
+template <class T, class LessComp = less<T>, class Equal = equal_to<T>>
+class Iterator;
+
 template <class T, class LessComp = less<T>, class Equal = equal_to<T>>
 class OrderedList {
     int numElements{0};
@@ -19,7 +21,7 @@ class OrderedList {
         Node(T v, Node * n):value(v), next(n) {}
     };
     Node * first;
-//    friend class Iterator<T, LessComp, Equal>;
+    friend class Iterator<T, LessComp, Equal>;
 public:
     OrderedList() { this->first = nullptr; };
     ~OrderedList();
@@ -107,8 +109,6 @@ void OrderedList<T, LessComp, Equal>::listItems(ostream & os) {
     }
     os << endl;
 }
-
-
 
 
 #endif //LAB12_ORDEREDLIST_H
